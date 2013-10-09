@@ -4,13 +4,20 @@ project(pcl_fuse)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS
+  roscpp std_msgs
+  pcl_conversions
+)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
-find_package(PCL REQUIRED COMPONENTS common io)
+find_package(PCL REQUIRED)
+include_directories(${PCL_INCLUDE_DIRS})
 
+find_package(PkgConfig)
+pkg_check_modules(EIGEN3 eigen3 REQUIRED)
+include_directories(${EIGEN3_INCLUDE_DIRS})
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -81,6 +88,12 @@ catkin_package(
 # target_link_libraries(pcl_fuse_node
 #   ${catkin_LIBRARIES}
 # )
+
+add_executable(pcl_fuse src/pcl_fuse.cpp)
+target_link_libraries(pcl_fuse ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+
+add_executable(pcl_voxel src/pcl_voxel.cpp)
+target_link_libraries(pcl_voxel ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 
 #############
 ## Install ##
