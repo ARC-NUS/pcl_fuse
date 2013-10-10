@@ -94,7 +94,7 @@ class PointCloudFusion {
 int main (int argc, char** argv)
 {
   // Initialize ROS
-  ros::init (argc, argv, "my_pcl_tutorial");
+  ros::init (argc, argv, "pcl_fuse");
   ros::NodeHandle nh;
 
   // Create a publisher for the fused data and create a PointCloudFusion object to do it.
