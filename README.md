@@ -4,7 +4,7 @@ This repository contains some simple C++ nodes for ROS which demonstrate
 interoperation with the [PCL](http://pointclouds.org/).
 
 All nodes listen for point cloud data as a sensor\_msgs::PointCloud2 message on
-``/vamera/depth/points`` and publish to the ``/fused_points`` topic.
+``/camera/depth/points`` and publish to the ``/fused_points`` topic.
 
 ## pcl\_voxel
 
