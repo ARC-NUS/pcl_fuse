@@ -6,7 +6,7 @@ project(pcl_fuse)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp std_msgs
-  pcl_conversions
+  pcl_conversions pcl_ros
 )
 
 ## System dependencies are found with CMake's conventions
